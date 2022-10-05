@@ -22,7 +22,7 @@
                             echo "<tr>";
                             echo "<td>". $lista->getisbn() ."</td>";
                             echo "<td>". $lista->gettitulo() ."</td>";
-                            <td>autor</td>
+                               <td>autor</td>
                             <td> </td>
                             <td>    
                                 <form action='libro.php' method='post'>
