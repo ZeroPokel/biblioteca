@@ -22,21 +22,21 @@
                             echo "<tr>";
                             echo "<td>". $lista->getisbn() ."</td>";
                             echo "<td>". $lista->gettitulo() ."</td>";
-                               <td>autor</td>
-                            <td> </td>
-                            <td>    
-                                <form action='libro.php' method='post'>
-                                        <input type='submit' value='Editar'/>
-                                </form>
-                            </td>
-                            <td>
-                                <form action='libro.php' method='post'>
-                                    <input type='submit' value='Eliminar'/>
-                                </form>
-                            </td>
-                        </tr>
-                    
-                </tbody>
-            </table>"
+                            echo "<td>". $lista->getautor() ."</td>";
+                            echo "<td>". $lista->getfecha() ."</td>";
+                            echo "<td>    
+                                    <form action='libro.php' method='post'>
+                                            <input type='submit' value='Editar'/>
+                                    </form>
+                                </td>";
+                            echo "<td>
+                                    <form action='libro.php' method='post'>
+                                        <input type='submit' value='Eliminar'/>
+                                    </form>
+                                </td>";
+                        echo "</tr>";
+                        }
+                echo "</tbody>
+            </table>";
             
 ?>
