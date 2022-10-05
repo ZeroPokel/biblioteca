@@ -1,5 +1,5 @@
 <?php
-    require('libro.php');
+    include('libro.php');
     session_start();
     $menu = $_SESSION['libro']; 
 
@@ -18,12 +18,12 @@
                 </thead>
                 <tbody>
                     ";
-                        foreach($menu as $lista){
+                        foreach($menu as $libro){
                             echo "<tr>";
-                            echo "<td>". $lista->getisbn() ."</td>";
-                            echo "<td>". $lista->gettitulo() ."</td>";
-                            echo "<td>". $lista->getautor() ."</td>";
-                            echo "<td>". $lista->getfecha() ."</td>";
+                            echo "<td>". $libro->getisbn() ."</td>";
+                            echo "<td>". $libro->gettitulo() ."</td>";
+                            echo "<td>". $libro->getautor() ."</td>";
+                            echo "<td>". $libro->getfecha() ."</td>";
                             echo "<td>    
                                     <form action='libro.php' method='post'>
                                             <input type='submit' value='Editar'/>
