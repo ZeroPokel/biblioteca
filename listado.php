@@ -1,42 +1,64 @@
 <?php
-    include('libro.php');
+    require 'libreria.php';
+
     session_start();
-    $menu = $_SESSION['libro']; 
-
-
-    echo "<h1>LISTADO DE LIBROS</h1>";
-    echo "<table border='1'>
-                <thead>
-                    <th>ISBN</th>
-                    <th>Título</th>
-                    <th>Autor</th>
-                    <th>Fecha Publicación </th>
-                    <th colspan='2'>Operaciones</th>
-                    <form action='altalibro.php' method='post'>
-                        <input type='submit' value='Dar de alta'/>
-                    </form>
-                </thead>
-                <tbody>
-                    ";
-                        foreach($menu as $libro){
-                            echo "<tr>";
-                            echo "<td>". $libro->getisbn() ."</td>";
-                            echo "<td>". $libro->gettitulo() ."</td>";
-                            echo "<td>". $libro->getautor() ."</td>";
-                            echo "<td>". $libro->getfecha() ."</td>";
-                            echo "<td>    
-                                    <form action='libro.php' method='post'>
-                                            <input type='submit' value='Editar'/>
-                                    </form>
-                                </td>";
-                            echo "<td>
-                                    <form action='libro.php' method='post'>
-                                        <input type='submit' value='Eliminar'/>
-                                    </form>
-                                </td>";
-                        echo "</tr>";
-                        }
-                echo "</tbody>
-            </table>";
-            
 ?>
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros</title>
+</head>
+<body>
+    
+    <h1>Libros</h1>
+    <button id="alta"><a href="altalibro.php">Alta libro</a></button>
+    <br/>
+    <br/>
+    <table border="1" width='700px' style="text-align:center">
+        <tr">
+            <td>
+                <p>ISBN</p>
+            </td>
+            <td>
+                <p>Título</p>
+            </td>
+            <td>
+                <p>Autor</p>
+            </td>
+            <td>
+                <p>Fecha de publicación</p>
+            </td>
+            <td colspan='2'>
+                <p>Operaciones</p>
+            </td>
+        </tr>
+    
+        <?php
+            $libros = $_SESSION['libro'];
+
+            foreach($libros as $list) {
+                echo "<tr>";
+                echo "<td>". $list->get_isbn() ."</td>";
+                echo "<td>". $list->get_titulo() ."</td>";
+                echo "<td>". $list->get_autor() ."</td>";
+                echo "<td>". $list->get_fecha() ."</td>";
+                echo "<td width='70px'>   
+                            <form action='libro.php' method='post'>
+                                <input type='submit' value='Editar'/>
+                            </form>
+                    </td>";
+                echo "<td width='70px'>
+                            <form action='libro.php' method='post'>
+                                <input type='submit' value='Eliminar'/>
+                             </form>
+                    </td>";
+                echo "</tr>";
+            }
+        ?>
+    </table>
+</body>
+</html>

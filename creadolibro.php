@@ -1,11 +1,11 @@
-<?php
-    require('libro.php');
+<?php  
+    require 'libreria.php';
+
     session_start();
 
-    $alta = new Libro($_POST['isbn'], $_POST['titulo'], $_POST['autor'], $_POST['fechapub']);
+    $nuevolibro = new Libro($_POST['isbn'], $_POST['titulo'], $_POST['autor'], $_POST['fecha']);
 
-    array_push($_SESSION['libro'], $alta);
+    array_push($_SESSION["libro"], $nuevolibro);
 
-    header( "Location:http://localhost/app-php/biblioteca/listado.php" ); 
-
+    header('Location:listado.php');
 ?>

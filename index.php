@@ -1,8 +1,10 @@
 <?php
+
     session_start();
 
     $_SESSION['libro'] = array();
 ?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>

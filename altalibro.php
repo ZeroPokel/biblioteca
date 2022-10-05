@@ -9,16 +9,16 @@
 <body>
     <form method="post" action="creadolibro.php">
         <label>ISBN</label>
-        <input type="text" name="isbn" id="isbn" required="true">
+        <input type="number" name="isbn" required="true">
         <br/>
         <label>Título </label>
-        <input type="text" name="titulo" id="titulo" required="true">
+        <input type="text" name="titulo"required="true">
         <br/>
         <label>Autor</label>
-        <input type="text" name="autor" id="autor" required="true">
+        <input type="text" name="autor" required="true">
         <br/>
         <label>Fecha de publicación </label>
-        <input type="date" name="fechapub" id="fechapub" required="true">
+        <input type="date" name="fecha" required="true">
         <br/>
         <input type="submit" value="Enviar">
     </form>
