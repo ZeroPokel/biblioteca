@@ -46,13 +46,16 @@
                 echo "<td>". $list->get_titulo() ."</td>";
                 echo "<td>". $list->get_autor() ."</td>";
                 echo "<td>". $list->get_fecha() ."</td>";
+                $isbn = $list->get_isbn();
                 echo "<td width='70px'>   
-                            <form action='libro.php' method='post'>
+                            <form action='modificalibro.php' method='post'>
                                 <input type='submit' value='Editar'/>
-                            </form>
-                    </td>";
+                                <input type='hidden' name='_isbn' value='$isbn'/>
+                            </form>";
+                echo "</td>";
                 echo "<td width='70px'>
-                            <form action='libro.php' method='post'>
+                            <form action='eliminalibro.php' method='post'>
+                                <input type='hidden' name='_isbn' value='$isbn'>
                                 <input type='submit' value='Eliminar'/>
                              </form>
                     </td>";
