@@ -1,5 +1,5 @@
 <?php
-    require 'libreria.php';
+    require 'socios.php';
 
     session_start();
 ?>
@@ -10,29 +10,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libros</title>
+    <title>Listado socios</title>
 </head>
 <body>
     
-    <h1>Libros</h1>
-    <button id="alta"><a href="altalibro.php">Alta libro</a></button>
+    <h1>Socios</h1>
+    <button id="alta"><a href="altasocio.php">Alta socio</a></button>
     <button id="atras"><a href="index.php">Volver</a></button>
     <br/>
-
     <br/>
     <table border="1" width='700px' style="text-align:center">
         <tr>
             <td>
-                <p>ISBN</p>
+                <p>Nombre</p>
             </td>
             <td>
-                <p>Título</p>
+                <p>DNI</p>
             </td>
             <td>
-                <p>Autor</p>
+                <p>Apellidos</p>
             </td>
             <td>
-                <p>Fecha de publicación</p>
+                <p>Teléfono</p>
+            </td>
+            <td>
+                <p>Dirección</p>
             </td>
             <td colspan='2'>
                 <p>Operaciones</p>
@@ -40,24 +42,25 @@
         </tr>
     
         <?php
-            $libros = $_SESSION['libro'];
+            $socios = $_SESSION['socio'];
 
-            foreach($libros as $list) {
+            foreach($socios as $list) {
                 echo "<tr>";
-                echo "<td>". $list->get_isbn() ."</td>";
-                echo "<td>". $list->get_titulo() ."</td>";
-                echo "<td>". $list->get_autor() ."</td>";
-                echo "<td>". $list->get_fecha() ."</td>";
-                $isbn = $list->get_isbn();
+                echo "<td>". $list->get_nombre() ."</td>";
+                echo "<td>". $list->get_dni() ."</td>";
+                echo "<td>". $list->get_apellidos() ."</td>";
+                echo "<td>". $list->get_telefono() ."</td>";
+                echo "<td>". $list->get_direccion() ."</td>";
+                $dni = $list->get_dni();
                 echo "<td width='70px'>   
-                            <form action='modificalibro.php' method='post'>
+                            <form action='modificasocios.php' method='post'>
                                 <input type='submit' value='Editar'/>
-                                <input type='hidden' name='_isbn' value='$isbn'/>
+                                <input type='hidden' name='_dni' value='$dni'/>
                             </form>";
                 echo "</td>";
                 echo "<td width='70px'>
-                            <form action='eliminalibro.php' method='post'>
-                                <input type='hidden' name='_isbn' value='$isbn'>
+                            <form action='eliminasocio.php' method='post'>
+                                <input type='hidden' name='_dni' value='$dni'>
                                 <input type='submit' value='Eliminar'/>
                              </form>
                     </td>";

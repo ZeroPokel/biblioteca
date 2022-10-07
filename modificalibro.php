@@ -18,7 +18,7 @@
 
         $posicion++;
     }
-    echo $posicion;
+
     echo "<form method='post' action='editalibro.php'>
             <label>ISBN</label>
                 <input type='number' name='isbn' required='true' value='$isbn'>
